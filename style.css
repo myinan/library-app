@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     background-color: #94a3b8;
-    color: rgb(66 32 6);
 }
 
 .top-name {
@@ -10,4 +9,18 @@
     padding: 15px;
     font-size: 3rem;
     background-color: #fbbf24;
+    color: rgb(66 32 6);
+}
+
+.addBook-btn {
+    display: block;
+    border: none;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+.addBook-btn:hover {
+    color: rgb(66 32 6);
 }

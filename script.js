@@ -10,3 +10,7 @@ const Book = function(author, title, pages, read) {
 const addBookToLibrary = {
     // do stuff here
 }
+
+const dialog =document.querySelector("dialog");
+const addBookBtn = document.querySelector(".addBook-btn");
+addBookBtn.addEventListener("click", () => dialog.showModal());
