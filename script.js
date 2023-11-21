@@ -16,6 +16,7 @@ const dialog =document.querySelector("dialog");
 const addBookBtn = document.querySelector(".addBook-btn");
 const cancelBtn = document.querySelector("#cancelBtn");
 const confirmBtn = document.querySelector("#confirmBtn");
+const tableBody = document.querySelector("tbody");
 
 addBookBtn.addEventListener("click", () => dialog.showModal());
 cancelBtn.addEventListener("click", () => dialog.close());
@@ -33,8 +34,6 @@ confirmBtn.addEventListener("click", function(event) {
     // Add the book to the library
     addBookToLibrary(author, title, pages, readStatus);
 
-    console.log(myLibrary);
-
     // Reset the form
     resetForm();
 
@@ -44,7 +43,22 @@ confirmBtn.addEventListener("click", function(event) {
 
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(myLibrary[myLibrary.length - 1]);
+
+    // Create new tr
+    let newRow = document.createElement("tr");
+
+    // Get object keys
+    let keys = Object.keys(myLibrary[myLibrary.length - 1]);
+
+    // Get values for keys, create td DOM elements and append to DOM
+    keys.forEach((key) => {
+        let newData = document.createElement("td");
+        newData.innerText = myLibrary[myLibrary.length - 1][key];
+        newRow.appendChild(newData);
+    });
+
+    // Append new tr
+    tableBody.appendChild(newRow);
 });
 
 function resetForm() {
