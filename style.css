@@ -24,3 +24,40 @@
 .addBook-btn:hover {
     color: rgb(66 32 6);
 }
+
+dialog {
+    margin: auto auto;
+}
+
+form {
+    color: white;
+    background-color: black;
+}
+
+::backdrop {
+    background-color: black;
+    opacity: 0.7;
+  }
+
+table {
+    border-collapse: collapse; 
+    border: 1px solid #69899F;
+    margin: auto;
+    margin-top: 60px;
+    font-size: 2rem;
+} 
+
+table td {
+    border: 1px dotted #000000;
+    padding: 5px;
+    min-height: 50px;
+}
+
+table td:first-child {
+    border-left: 0px solid #000000;
+}
+
+table th {
+   border: 2px solid #69899F;
+   padding: 10px 50px;
+}

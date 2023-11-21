@@ -29,19 +29,27 @@
                 <p>Have you already read it?</p>
                 <div>
                     <label for="read">Yes</label>
-                    <input type="radio" id="read" name="read-status" value="read">
+                    <input type="radio" id="read" name="read-status" value="Read">
                 </div>
                 <div>
                     <label for="not-read">Not yet</label>
-                    <input type="radio" id="not-read" name="read-status" value="not-read">
+                    <input type="radio" id="not-read" name="read-status" value="Not Read" checked>
                 </div>
             </div>
             <div>
-                <button type="button">Cancel</button>
-                <button type="submit">Confirm</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="submit" id="confirmBtn">Confirm</button>
             </div>    
         </form>
     </dialog>
 
+    <table>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Pages</th>
+            <th>Read status</th>
+        </tr>
+    </table>
 </body>
 </html>
