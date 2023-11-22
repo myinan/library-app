@@ -5,6 +5,7 @@ const Book = function(author, title, pages, read) {
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.id = Date.now(); // Unique identifier for each book
 };
 
 const addBookToLibrary = function(author, title, pages, read) {
@@ -51,13 +52,14 @@ confirmBtn.addEventListener("click", (event) => {
 
     // Create new tr
     let newRow = document.createElement("tr");
-    newRow.setAttribute("data-row-number", `${myLibrary.length - 1}`);
+    newRow.setAttribute("data-row-id", `${myLibrary[myLibrary.length - 1].id}`);
 
     // Get object keys
     let keys = Object.keys(myLibrary[myLibrary.length - 1]);
 
     // Get values for keys, create td DOM elements and append to DOM
     keys.forEach((key) => {
+        if (key == "id") return;
         let newData = document.createElement("td");
         newData.innerText = myLibrary[myLibrary.length - 1][key];
         if (myLibrary[myLibrary.length - 1][key] == "Read") {
@@ -108,7 +110,7 @@ confirmBtn.addEventListener("click", (event) => {
     // Add "remove entry" button
     let newCell = document.createElement("td");
     let removeButton = document.createElement("button");
-    removeButton.setAttribute("data-button-number", `${myLibrary.length - 1}`);
+    removeButton.setAttribute("data-button-id", `${myLibrary[myLibrary.length - 1].id}`);
     removeButton.innerText = "Remove";
     removeButton.classList.add("removeBtn");
     newCell.appendChild(removeButton);
@@ -117,12 +119,15 @@ confirmBtn.addEventListener("click", (event) => {
     removeButton.addEventListener("click", (event) => {
         event.preventDefault();
 
-        let btnNum = removeButton.getAttribute("data-button-number");
-        let rowNum = newRow.getAttribute("data-row-number");
-        if (btnNum == rowNum) {
+        let btnId = removeButton.getAttribute("data-button-id");
+        let rowId = newRow.getAttribute("data-row-id");
+        if (btnId == rowId) {
+            myLibrary.forEach((book) => {
+                if (book.id == btnId) myLibrary.splice(myLibrary.indexOf(book), 1);
+            });
             newRow.remove();
         }
-    })
+    });
 });
 
 function resetForm() {
