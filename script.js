@@ -28,6 +28,11 @@ confirmBtn.addEventListener("click", function(event) {
     const title = document.getElementById("title").value;
     const pages = document.getElementById("pages").value;
 
+    if (author == "" || title == "") {
+        alert("Must enter author and title for the book.");
+        return;
+    };
+
     // Get the selected radio button value for read status
     const readStatus = document.querySelector(`input[name="read-status"]:checked`).value;
 
@@ -98,6 +103,14 @@ confirmBtn.addEventListener("click", (event) => {
 
     // Append new tr
     tableBody.appendChild(newRow);
+
+    // Add "remove entry" button
+    let newCell = document.createElement("td");
+    let removeButton = document.createElement("button");
+    removeButton.innerText = "Remove entry";
+    newCell.classList.add("border-none");
+    newCell.appendChild(removeButton);
+    newRow.appendChild(newCell);
 });
 
 function resetForm() {
