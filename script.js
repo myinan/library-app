@@ -49,7 +49,6 @@ confirmBtn.addEventListener("click", (event) => {
 
     // Get object keys
     let keys = Object.keys(myLibrary[myLibrary.length - 1]);
-    console.log(keys);
 
     // Get values for keys, create td DOM elements and append to DOM
     keys.forEach((key) => {
@@ -68,7 +67,32 @@ confirmBtn.addEventListener("click", (event) => {
             let switchButton = document.createElement("button");
             switchButton.innerText = "Change";
             newData.appendChild(switchButton);
+
+            // Switch read status and bg color
+            switchButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                for (let i = 0; i < newData.classList.length; i++) {
+                    if (newData.classList[i] == "bg-red") {
+                        myLibrary[myLibrary.length - 1][key] = "Read";
+                        newData.innerText = "Read";
+                        newData.appendChild(switchButton);
+                        newData.classList.remove("bg-red");
+                        newData.classList.add("bg-green");
+                        return;
+                    }
+                    else if (newData.classList[i] == "bg-green") {
+                        myLibrary[myLibrary.length - 1][key] = "Not Read";
+                        newData.innerText = "Not Read";
+                        newData.appendChild(switchButton);
+                        newData.classList.remove("bg-green");
+                        newData.classList.add("bg-red");
+                        return;
+                    }
+                }
+            });
+
         }
+
         newRow.appendChild(newData);
     });
 
