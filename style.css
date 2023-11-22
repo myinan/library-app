@@ -30,8 +30,59 @@ dialog {
 }
 
 form {
-    color: white;
-    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+    color: #0f172a;
+    background-color: #94a3b8;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+form  div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+form div:nth-child(4) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+form div:last-child {
+    gap: 10px;
+    margin-right: 50px;
+}
+
+form div:last-child  button {
+    color: #0f172a;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 25px;
+    border-radius: 10px;
+    background-color: #e2e8f0;
+    border: 0.5px solid black;
+}
+
+#cancelBtn:hover {
+    background-color: #fca5a5;
+}
+
+#confirmBtn:hover {
+    background-color: #86efac;
+}
+
+input[type= "text"] {
+    padding: 5px;
+    font-size: 1.7rem;
+    width: 400px;
+    border-radius: 5px;
+    border: 0.5px solid black;
+
 }
 
 ::backdrop {

@@ -51,7 +51,7 @@ confirmBtn.addEventListener("click", (event) => {
 
     // Create new tr
     let newRow = document.createElement("tr");
-    newRow.setAttribute("data-row-number", `${myLibrary[myLibrary.length - 1]}`);
+    newRow.setAttribute("data-row-number", `${myLibrary.length - 1}`);
 
     // Get object keys
     let keys = Object.keys(myLibrary[myLibrary.length - 1]);
@@ -108,7 +108,7 @@ confirmBtn.addEventListener("click", (event) => {
     // Add "remove entry" button
     let newCell = document.createElement("td");
     let removeButton = document.createElement("button");
-    removeButton.setAttribute("data-button-number", `${myLibrary[myLibrary.length - 1]}`);
+    removeButton.setAttribute("data-button-number", `${myLibrary.length - 1}`);
     removeButton.innerText = "Remove";
     removeButton.classList.add("removeBtn");
     newCell.appendChild(removeButton);
@@ -119,7 +119,6 @@ confirmBtn.addEventListener("click", (event) => {
 
         let btnNum = removeButton.getAttribute("data-button-number");
         let rowNum = newRow.getAttribute("data-row-number");
-        console.log(btnNum, rowNum);
         if (btnNum == rowNum) {
             newRow.remove();
         }
