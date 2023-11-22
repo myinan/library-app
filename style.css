@@ -43,7 +43,7 @@ table {
     border-collapse: collapse; 
     margin: auto;
     margin-top: 60px;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 table tr {
@@ -107,7 +107,8 @@ td:last-child {
 }
 
 .removeBtn {
-    font-size: 1.5rem;
+    display: block;
+    font-size: 1rem;
     border-radius: 5px;
     padding: 5px 10px;
     border: 1px solid black;
