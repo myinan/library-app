@@ -49,11 +49,26 @@ confirmBtn.addEventListener("click", (event) => {
 
     // Get object keys
     let keys = Object.keys(myLibrary[myLibrary.length - 1]);
+    console.log(keys);
 
     // Get values for keys, create td DOM elements and append to DOM
     keys.forEach((key) => {
         let newData = document.createElement("td");
         newData.innerText = myLibrary[myLibrary.length - 1][key];
+        if (myLibrary[myLibrary.length - 1][key] == "Read") {
+            
+            newData.classList.add("bg-green");
+            
+        }
+        else if (myLibrary[myLibrary.length - 1][key] == "Not Read") {
+            newData.classList.add("bg-red");
+        }
+        if (key == "read") {
+            newData.classList.add("flex-container");
+            let switchButton = document.createElement("button");
+            switchButton.innerText = "Change";
+            newData.appendChild(switchButton);
+        }
         newRow.appendChild(newData);
     });
 
