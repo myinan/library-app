@@ -52,7 +52,7 @@ table tr {
 
 table td {
     border: 1px dotted #000000;
-    padding-left: 5px;
+    padding: 0px 5px;
     min-height: 50px;
     background-color: #a8a29e;
     color: #18181b;
@@ -68,7 +68,6 @@ table td:first-child {
 
 table td:nth-child(4) {
     border: none;
-    border-bottom: 1px dotted black;
     flex-grow: 1;
     gap: 10px;
     justify-content: flex-start;
@@ -88,10 +87,6 @@ table td:nth-child(4) button:hover {
     cursor: pointer;
 }
 
-table td:last-child {
-    border: none;
-}
-
 table th {
    border: 2px solid #69899F;
    padding: 10px 50px 10px 5px;
@@ -104,5 +99,22 @@ table th {
 }
 
 .bg-red {
+    background-color: #dc2626;
+}
+
+td:last-child {
+    border: none;
+}
+
+.removeBtn {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 0px auto;
+}
+
+.removeBtn:hover {
     background-color: #dc2626;
 }

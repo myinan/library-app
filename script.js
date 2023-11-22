@@ -107,7 +107,8 @@ confirmBtn.addEventListener("click", (event) => {
     // Add "remove entry" button
     let newCell = document.createElement("td");
     let removeButton = document.createElement("button");
-    removeButton.innerText = "Remove entry";
+    removeButton.innerText = "Remove";
+    removeButton.classList.add("removeBtn");
     newCell.appendChild(removeButton);
     newRow.appendChild(newCell);
 });
