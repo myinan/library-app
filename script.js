@@ -79,9 +79,15 @@ confirmBtn.addEventListener("click", (event) => {
             // Switch read status and bg color
             switchButton.addEventListener("click", (event) => {
                 event.preventDefault();
+                let rowId = newRow.getAttribute("data-row-id");
                 for (let i = 0; i < newData.classList.length; i++) {
                     if (newData.classList[i] == "bg-red") {
-                        myLibrary[myLibrary.length - 1][key] = "Read";
+                        myLibrary.forEach((item) => {
+                            if (item.id == rowId) {
+                                item.read = "Read";
+                            }
+                        });
+                        
                         newData.innerText = "Read";
                         newData.appendChild(switchButton);
                         newData.classList.remove("bg-red");
@@ -89,7 +95,12 @@ confirmBtn.addEventListener("click", (event) => {
                         return;
                     }
                     else if (newData.classList[i] == "bg-green") {
-                        myLibrary[myLibrary.length - 1][key] = "Not Read";
+                        myLibrary.forEach((item) => {
+                            if (item.id == rowId) {
+                                item.read = "Not Read";
+                            }
+                        });
+
                         newData.innerText = "Not Read";
                         newData.appendChild(switchButton);
                         newData.classList.remove("bg-green");
