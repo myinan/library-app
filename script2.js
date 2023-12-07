@@ -25,45 +25,43 @@ const render = (function() {
     const confirmBtn = document.querySelector("#confirmBtn");
     const tableBody = document.querySelector("tbody");
 
-    function getInputValues() {
-        const author = document.getElementById("author").value;
-        const title = document.getElementById("title").value;
-        const pages = document.getElementById("pages").value;
-
-        // Get the selected radio button value for read status
-        const readStatus = document.querySelector(`input[name="read-status"]:checked`).value;
-
-        return { author, title, pages, readStatus };
-    }
-
+    // Bind event listeners
     addBookBtn.addEventListener("click", () => dialog.showModal());
     cancelBtn.addEventListener("click", () => dialog.close());
-
     confirmBtn.addEventListener("click", addBookFunc);
 
     function addBookFunc(event) {
         event.preventDefault();
-        const inputValues = getInputValues();
 
-        if (inputValues.author == "" || inputValues.title == "") {
+        // Get input values
+        const author = document.getElementById("author").value;
+        const title = document.getElementById("title").value;
+        const pages = document.getElementById("pages").value;
+        const readStatus = document.querySelector(`input[name="read-status"]:checked`).value;
+
+        if ( author == "" || title == "") {
             alert("Must enter author and title for the book.");
             return;
         };
 
         //Create Book instance
-        let newBook = new Book(inputValues.author, inputValues.title, inputValues.pages, inputValues.readStatus);
+        let newBook = new Book (author, title, pages, readStatus);
         Book.addBookToLibrary(newBook);
 
-        // Reset input values to empty strings
-        resetForm(inputValues.author, inputValues.title, inputValues.pages);
+        // Reset inputs to empty strings
+        resetForm();
 
         // Close the dialog
         dialog.close();
     }
 
-    function resetForm(author, title, pages) { 
-        author = "";
-        title = "";
-        pages = "";
-    }
+    function resetForm() {
+        // Reset input values to empty strings
+        document.getElementById('author').value = '';
+        document.getElementById('title').value = '';
+        document.getElementById('pages').value = '';
+    
+        document.getElementById('not-read').checked = true;
+    };
+
 })();
