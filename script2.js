@@ -62,8 +62,8 @@ const render = (function() {
     }
 
     function resetForm(author, title, pages) { 
-        arguments.array.forEach(element => {
-            element = "";
-        });
+        author = "";
+        title = "";
+        pages = "";
     }
 })();
